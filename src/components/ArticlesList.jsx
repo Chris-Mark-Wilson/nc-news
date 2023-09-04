@@ -1,9 +1,9 @@
 import { useState,useEffect } from "react"
-import { fetchArticleList } from "../utils/fetchArticleList"
-import {ArticleCard} from '../components/ArticleCard'
-import { Container } from "./Container"
+import { fetchArticleList } from "../utils/api"
+import {ArticlePreviewCard} from './ArticlePreviewCard'
 
-export const ArticlesList=()=>{
+
+export const ArticlesList=({setArticle_id})=>{
     const [articlesList,setArticlesList]=useState([])
     const[isLoading,setIsLoading]=useState(true)
     const [error,setError]=useState(false)
@@ -29,8 +29,8 @@ fetchArticleList()
     return isLoading?<div>Loading...</div>:
    (
   <ol>
-{articlesList.map(article=>{
-return <ArticleCard key={article.article_id} article={article}/>
+{articlesList.map(articlePreview=>{
+return <ArticlePreviewCard key={articlePreview.article_id} articlePreview={articlePreview} setArticle_id={setArticle_id}/>
 })}
 </ol>
 
