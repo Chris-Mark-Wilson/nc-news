@@ -4,39 +4,47 @@
   padding: 2rem;
   text-align: center;
 }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+nav{
+  display: flex;
+  flex-direction: column;
+  justify-items: space-around;
+  box-sizing: border-box;
+  background-color: grey;
+  border: 1px solid red;
+  border-radius: 10px;
+  width:90vw;
+  height:80px;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.nav-buttons{
+  border: 1px solid magenta;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   }
-  to {
-    transform: rotate(360deg);
+  .nav-button{
+    border: 1px solid black;
+    padding: 4px;
+    background-color: white;
+    color:black;
+    margin-top: 5px;
   }
+.error-msg{
+  margin:50px auto;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.main-container{
+  border:1px solid blue;
+  height:80vh;
+  overflow:scroll;
+  margin:20px 0 0 0;
 }
-
-.card {
-  padding: 2em;
+.preview-image{
+  width:60vw;
 }
-
-.read-the-docs {
-  color: #888;
+.article-preview{
+  width:100%;
+  border:1px solid green;
+  margin:10px 0 10px -23px;
+}
+.back-button{
+  margin:10px auto;
 }
