@@ -9,7 +9,7 @@ export const Header=()=>{
   <div className="nav-buttons">
   <Link to="/"><button className="nav-button">Home</button></Link>
   </div>
-  <p>Logged in as:{user}</p>
+  <p className='logged-in-as'>Logged in as:{user}</p>
   </nav>
     )
 }

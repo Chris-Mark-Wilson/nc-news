@@ -26,7 +26,7 @@ setArticle_id(e.target.value)
         <p>{comment_count} comments</p>
       </section>
       <Link to="/Articles/Article" element={<Article article_id={article_id} />}>
-        <button onClick={handleClick} value={article_id}>See full article</button>
+        <button className="preview-button" onClick={handleClick} value={article_id}>See full article</button>
       </Link>
     </div>
   );
