@@ -35,3 +35,13 @@ export const fetchCommentByArticleId=(article_id)=>{
   });
 
 }
+
+export const voteArticle=(article_id,vote)=>{
+  return api.patch(`/api/articles/${article_id}`,{"inc_votes":`${vote}`})
+  .then(({data}) => {
+    return data.article;
+  })
+  .catch((err)=>{
+  return Promise.reject(err.message)
+  });
+}
