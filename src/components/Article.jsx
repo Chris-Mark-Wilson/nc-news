@@ -33,6 +33,10 @@ export const Article = () => {
       });
   }, []);
   if (error) return <div className="error-msg">Error:{errorMsg}</div>;
+  const handleVoteCLick=(e)=>{
+    const vote=e.target.value;
+
+}
 
   return isLoading ? (
     <div>Loading...</div>
@@ -44,6 +48,9 @@ export const Article = () => {
         <p className="author">Written by: <span className="mono">{author}</span></p>
         <p className="created-at">on<span className="mono"> {created_at.split("T")[0]}</span></p>
         <p className="article-topic">in <span className="mono">{topic}</span></p>
+        <p>Votes:<span  className="mono">{votes}</span></p>
+        <button className="vote-button" onClick={handleVoteCLick} value="1">🔼</button>
+        <button className="vote-button" onClick={handleVoteCLick} value="-1">🔽</button>
       </section>
       <section className="article-body">
         <p>{body}</p>
