@@ -7,8 +7,10 @@
 }
 body{
   display:flex;
+  flex-direction: column;
+  justify-content: center;
   box-sizing: border-box;
-  border:1px solid magenta;
+  border:1px dotted magenta;
 height:50vh;
 padding:0;
 }
@@ -32,6 +34,7 @@ nav{
   flex-direction: row;
   justify-content: space-around;
   }
+  /*conditional classnames possibly */
   .nav-button{
     border: 1px solid black;
     padding: 4px;
@@ -59,10 +62,18 @@ nav{
 .article-preview{
   width:80vw;
   border:1px solid green;
-  margin:10px 0 10px -23px;
+
+  margin:10px auto 10px auto;
 }
 .back-button{
   margin:10px auto;
+}
+.list{
+  display:flex;
+  flex-direction: column;
+  
+  padding:0;
+  margin:0 auto;
 }
 .main-article{
   display:flex;
@@ -84,21 +95,34 @@ overflow:scroll;
   border:2px solid green;
   align-items: center;
 }
-/* @media screen and (max-width:300px){
-
+.topic-text{
+  border:1px solid magenta;
+  padding:2px;
+   font-family:monospace;
+   color:rgb(169, 77, 89);
+}
+.article-body{
+  line-height: 1.5;
+  /*line width??*/
+}
+/* @media only  screen and (min-width:600px){
+/*conditional classNames etc*/
+/*
 body{
   display:grid;
   box-sizing: border-box;
   border:1px solid magenta;
 height:50vh;
 padding:0;
-grid-template-columns: 20vw 80vw;
-grid-template-rows: 10vh 80vh;
+grid-template-columns: 20vw auto;
+grid-template-rows: 10vh auto;
+git-template-aread:"nav nav" "comments main" // etc
 }
 nav{
+  //grid-area"nav"; etc
   grid-row: 1;
   grid-column: 1/2;
-  display: flex;
+  display: flex; // can still be flex...
   flex-direction: column;
   justify-items: space-around;
   box-sizing: border-box;

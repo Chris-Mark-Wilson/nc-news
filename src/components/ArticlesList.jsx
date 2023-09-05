@@ -28,9 +28,9 @@ fetchArticleList()
 
     return isLoading?<div>Loading...</div>:
    (
-  <ol>
+  <ol className="list">
 {articlesList.map(articlePreview=>{
-return <ArticlePreviewCard key={articlePreview.article_id} articlePreview={articlePreview} setArticle_id={setArticle_id}/>
+return <ArticlePreviewCard key={articlePreview.article_id} articlePreview={articlePreview} />
 })}
 </ol>
 

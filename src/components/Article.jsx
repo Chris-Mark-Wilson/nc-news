@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { fetchArticleById } from "../utils/api";
-
-export const Article = ({ article_id }) => {
+import { useParams } from 'react-router-dom';
+export const Article = () => {
   const [article, setArticle] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+  const {article_id}=useParams();
   const {
     title,
     topic,
@@ -41,6 +42,10 @@ export const Article = ({ article_id }) => {
       <section className="author-created">
         <p className="author">Written by: {author}</p>
         <p className="created-at">on {created_at.split("T")[0]}</p>
+        <p className="article-topic">in <span className="topic-text">{topic}</span></p>
+      </section>
+      <section className="article-body">
+        <p>{body}</p>
       </section>
     </section>
   );
