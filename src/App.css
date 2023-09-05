@@ -69,6 +69,8 @@ nav{
   margin:10px auto;
 }
 .list{
+  box-sizing: border-box;
+  border:3px dashed white;
   display:flex;
   flex-direction: column;
   
@@ -95,8 +97,8 @@ overflow:scroll;
   border:2px solid green;
   align-items: center;
 }
-.topic-text{
-  border:1px solid magenta;
+.mono{
+
   padding:2px;
    font-family:monospace;
    color:rgb(169, 77, 89);
@@ -105,6 +107,19 @@ overflow:scroll;
   line-height: 1.5;
   /*line width??*/
 }
+.comments-label{
+  display:flex;
+  border:1px solid blue;
+  justify-content: flex-start;
+}
+.comment{
+  border:2px dashed rgb(90, 224, 206);
+  margin:10px auto;
+}
+.vote-button{
+  padding:0;
+}
+
 /* @media only  screen and (min-width:600px){
 /*conditional classNames etc*/
 /*
