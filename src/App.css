@@ -126,9 +126,24 @@ overflow:scroll;
 }
 .no-comments{
   border:2px dashed green;
-
 }
-
+.add-comment-button{
+  border:1px solid red;
+  padding:3px;
+  width:20vw;
+  margin:0 auto;
+}
+.voting{
+  display:flex;
+  flex-direction: row;
+  width:15vw;
+  justify-content: space-around;
+}
+.cancel-button{
+  padding:2px;
+  background-color:red;
+  color:black;
+}
 /* @media only  screen and (min-width:600px){
 /*conditional classNames etc*/
 /*
