@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchArticleById } from "../utils/api";
 import { useParams } from 'react-router-dom';
+import { CommentsList } from "./CommentsList";
 export const Article = () => {
   const [article, setArticle] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -40,9 +41,9 @@ export const Article = () => {
       <h3 className="article-title">{title}</h3>
       <img className="article-img" src={article_img_url} />
       <section className="author-created">
-        <p className="author">Written by: {author}</p>
-        <p className="created-at">on {created_at.split("T")[0]}</p>
-        <p className="article-topic">in <span className="topic-text">{topic}</span></p>
+        <p className="author">Written by: <span className="mono">{author}</span></p>
+        <p className="created-at">on<span className="mono"> {created_at.split("T")[0]}</span></p>
+        <p className="article-topic">in <span className="mono">{topic}</span></p>
       </section>
       <section className="article-body">
         <p>{body}</p>

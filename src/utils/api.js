@@ -24,3 +24,14 @@ export const fetchArticleById = (article_id) => {
   return Promise.reject(err.message)
   });
 };
+
+export const fetchCommentByArticleId=(article_id)=>{
+  return api.get(`/api/articles/${article_id}/comments`)
+  .then(({data}) => {
+    return data.comments;
+  })
+  .catch((err)=>{
+  return Promise.reject(err.message)
+  });
+
+}
