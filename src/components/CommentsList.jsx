@@ -26,11 +26,13 @@ fetchCommentByArticleId(article_id)
     return isLoading?<div>Loading comments...</div>:(
         <>
         <h4 className="comments-label">Comments:</h4>
-        <ol className="list">
+        <section className="comments-list">        <ol className="list">
         {commentsList.map(comment=>{
         return <CommentCard key={comment.comment_id} comment={comment} />
         })}
         </ol>
+        </section>
+
         </>
     )
 }

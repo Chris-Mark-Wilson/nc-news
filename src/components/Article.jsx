@@ -116,9 +116,10 @@ export const Article = () => {
       <section className="article-body">
         <p>{body}</p>
       </section>
-      <section className="comments">
+      {comment_count>0?   <section className="comments">
         <CommentsList article_id={article_id} />
-      </section>
+      </section>  : <p className="no-comments">No comments yet be the first to add a comment!</p> }
+
     </section>
   );
 };

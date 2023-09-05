@@ -116,13 +116,17 @@ overflow:scroll;
   border:2px dashed rgb(90, 224, 206);
   margin:10px auto;
 }
+.comments-list{
+  border:2px solid magenta;
+  height:30vh;
+  overflow:auto;
+}
 .vote-button{
   padding:0;
 }
-.voted{
-  
-  padding:0;
-font-size: xx-small;
+.no-comments{
+  border:2px dashed green;
+
 }
 
 /* @media only  screen and (min-width:600px){
