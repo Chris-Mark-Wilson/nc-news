@@ -52,7 +52,7 @@ export const Article = () => {
     voteArticle(article_id, vote)
       .then((result) => {
         if (vote > 0) {
-          console.dir(upvote);
+
           setHasUpVoted(true);
           upvote.current.innerText= "😁";
           downvote.current.innerText="🔽"
