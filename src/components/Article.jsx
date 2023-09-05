@@ -47,6 +47,9 @@ export const Article = () => {
       <section className="article-body">
         <p>{body}</p>
       </section>
+      <section className="comments">
+        <CommentsList article_id={article_id}/>
+      </section>
     </section>
   );
 };
