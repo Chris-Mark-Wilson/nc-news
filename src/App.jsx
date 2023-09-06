@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+
 import { Routes, Route } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Container } from './components/Container';
@@ -23,6 +24,7 @@ const[article_id,setArticle_id]=useState(0)
            <Route path="/" element={<Home setArticleId={setArticle_id}/>} />
            <Route path="/Articles" element={<ArticlesList setArticle_id={setArticle_id}/>}/>
            <Route path="/Articles/:article_id" element={<Article />}/> 
+           <Route path="/Articles/:topic" element={<ArticlesList setArticle_id={setArticle_id}/>}/>
 
 
       </Routes>
