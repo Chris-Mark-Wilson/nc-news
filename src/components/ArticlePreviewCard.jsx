@@ -17,7 +17,7 @@ export const ArticlePreviewCard = ({ articlePreview}) => {
         <p>{comment_count} comments</p>
       </section>
       <Link
-        to={`/Articles/Article/${article_id}`}
+        to={`/Articles/${article_id}`}
         element={<Article  />}
       >
         <button

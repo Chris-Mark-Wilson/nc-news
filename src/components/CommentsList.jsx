@@ -2,8 +2,8 @@ import { useState,useEffect } from "react"
 import { CommentCard } from "./CommentCard"
 import { fetchCommentByArticleId } from "../utils/api"
 
-export const CommentsList=({article_id})=>{
-const [commentsList,setCommentsList]=useState([])
+export const CommentsList=({article_id,commentsList,setCommentsList})=>{
+
 const[isLoading,setIsLoading]=useState(true)
 const [errorMsg,setErrorMsg]=useState("")
 const [error,setError]=useState(false)
@@ -26,11 +26,13 @@ fetchCommentByArticleId(article_id)
     return isLoading?<div>Loading comments...</div>:(
         <>
         <h4 className="comments-label">Comments:</h4>
-        <ol className="list">
+        <section className="comments-list">        <ol className="list">
         {commentsList.map(comment=>{
         return <CommentCard key={comment.comment_id} comment={comment} />
         })}
         </ol>
+        </section>
+
         </>
     )
 }
