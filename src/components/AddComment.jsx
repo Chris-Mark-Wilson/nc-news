@@ -34,21 +34,29 @@ export const AddComment = ({ article_id, setCommentsList }) => {
     }
     setSubmitted(true);
 
+    setCommentsList((list) => {
+      const newComment={}
+      newComment.body=comment;
+      newComment.comment_id=list.length+1;
+      newComment.created_at= new Date().toString()
+      console.log(newComment.created_at)
+      newComment.votes=0;
+      return [newComment, ...list];
+    });
     postComment(article_id, user, comment)
       .then((result) => {
         setSuccess(true);
         setComment("");
         closeModal();
-        setCommentsList((list) => {
-          return [result, ...list];
-        });
         setTimeout(() => {
           setSuccess(false);
         }, 2000);
         setSubmitted(false)
       })
       .catch(msg=> {
-     
+        setCommentsList((list) => {
+          return [...list].shift();
+        });
        console.log(msg,"msg")
         alert(msg);
         closeModal();

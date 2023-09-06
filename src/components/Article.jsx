@@ -56,7 +56,7 @@ export const Article = () => {
           By: <span className="mono">{author}</span>
         </p>
         <p className="created-at">
-          on<span className="mono"> {created_at.split("T")[0]}</span>
+          on<span className="mono"> {new Date(created_at).toLocaleString()}</span>
         </p>
         <p className="article-topic">
           in <span className="mono">{topic}</span>
