@@ -2,8 +2,8 @@ import { useState,useEffect } from "react"
 import { CommentCard } from "./CommentCard"
 import { fetchCommentByArticleId } from "../utils/api"
 
-export const CommentsList=({article_id})=>{
-const [commentsList,setCommentsList]=useState([])
+export const CommentsList=({article_id,commentsList,setCommentsList})=>{
+
 const[isLoading,setIsLoading]=useState(true)
 const [errorMsg,setErrorMsg]=useState("")
 const [error,setError]=useState(false)

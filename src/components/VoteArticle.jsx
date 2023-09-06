@@ -1,7 +1,7 @@
 import { voteArticle } from "../utils/api";
 import { useRef } from "react";
 import { useState } from "react";
-export const VoteArticle = ({ article_id, setArticle }) => {
+export const VoteArticle = ({ article_id, votes,setArticle }) => {
   const upvote = useRef();
   const downvote = useRef();
   const [hasUpVoted, setHasUpVoted] = useState(false);
@@ -58,7 +58,13 @@ export const VoteArticle = ({ article_id, setArticle }) => {
 
 
   return (
-    <>
+ 
+       < >
+       <p>
+          <span className="mono">{votes} </span> vote
+          {votes > 1 || votes === 0 || votes < -1 ? "s" : ""}
+        </p>
+        <section className="voting">
       <button
         className="vote-button"
         ref={upvote}
@@ -75,7 +81,8 @@ export const VoteArticle = ({ article_id, setArticle }) => {
       >
         🔽
       </button>
-   
-    </>
+      </section>
+      </>
+  
   );
 };

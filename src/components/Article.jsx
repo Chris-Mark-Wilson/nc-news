@@ -3,11 +3,13 @@ import { fetchArticleById } from "../utils/api";
 import { useParams } from "react-router-dom";
 import { CommentsList } from "./CommentsList";
 import { VoteArticle } from "./VoteArticle";
+
 import { AddComment } from "./AddComment";
 export const Article = () => {
   const [article, setArticle] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [commentsList,setCommentsList]=useState([])
 
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -59,23 +61,16 @@ export const Article = () => {
         <p className="article-topic">
           in <span className="mono">{topic}</span>
         </p>
-        <p>
-          <span className="mono">{votes} </span> vote
-          {votes > 1 || votes === 0 || votes < -1 ? "s" : ""}
-        </p>
-        <section className="voting">
-        <VoteArticle article_id={article_id} setArticle={setArticle}/>
-        </section>
+        <VoteArticle article_id={article_id}votes={votes} setArticle={setArticle}/>
       </section>
       <section className="article-body">
         <p>{body}</p>
       </section>
-<AddComment/>
-      <button className="add-comment-button" onClick={handleAddComment}>Add comment</button>
+<AddComment article_id={article_id}setCommentsList={setCommentsList}/>
 
       {comment_count > 0 ? (
         <section className="comments">
-          <CommentsList article_id={article_id} />
+          <CommentsList article_id={article_id} commentsList={commentsList} setCommentsList={setCommentsList} />
         </section>
       ) : (
         <p className="no-comments">
