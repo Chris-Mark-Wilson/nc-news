@@ -3,13 +3,17 @@ import axios from "axios";
 const baseURL = "https://nrthcoders-ncnews.onrender.com";
 const api = axios.create({ baseURL });
 
-export const fetchArticleList = (topic) => {
+export const fetchArticleList = (topic,sortBy,order) => {
   let queryString="/api/articles"
-  if(topic)queryString+=`?topic=${topic}`
+  if(topic || sortBy || order)queryString+=`?`
+  if(topic)queryString+=`topic=${topic}`
+  if(sortBy)queryString+=`&sort_by=${sortBy}`
+  if(order)queryString+=`&order=${order}`
 
   return api
     .get(queryString)
     .then(({ data }) => {
+
       return data.articles;
     })
     .catch((err) => {
