@@ -15,6 +15,8 @@ body{
   border:1px dotted magenta;
 height:50vh;
 padding:0;
+background-color: #242424;
+color:aliceblue;
 }
 /* nav{
   display: flex;
@@ -171,8 +173,12 @@ border:2px dashed red;
   
   align-items: center;
   justify-content: center;
-  
-
+}
+.sort-bar{
+  display:flex;
+  border:2px solid yellow;
+  margin:10px auto;
+  justify-content: space-evenly;
 }
 /* @media only  screen and (min-width:600px){
 /*conditional classNames etc*/

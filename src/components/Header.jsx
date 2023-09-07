@@ -17,7 +17,7 @@ fetchAllTopics()
   setTopics(topics)
 })
 },[])
-    // useEffect to fetch topics
+  
 
     const {user} = useContext(UserContext)
     return(
@@ -54,10 +54,3 @@ fetchAllTopics()
     )
 }
 
-{/* <nav>
-<div className="nav-buttons">
-<Link to="/"><button className="nav-button">Home</button></Link>
-
-  </div>
-
-</nav> */}

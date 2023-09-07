@@ -2,6 +2,7 @@ import { useState,useEffect } from "react"
 import { fetchArticleList } from "../utils/api"
 import {ArticlePreviewCard} from './ArticlePreviewCard'
 import { useParams,useSearchParams } from "react-router-dom"
+import { SortBar } from "./SortBar"
 
 
 export const ArticlesList=({setArticle_id})=>{
@@ -11,6 +12,9 @@ export const ArticlesList=({setArticle_id})=>{
     const [errorMsg,setErrorMsg]=useState("")
     const[searchParams,setSearchParams]=useSearchParams()
     const topic=searchParams.get("topic")
+    const [sortBy,setSortBy]=useState("created_at")
+    const[order,setOrder]=useState("DESC")
+
 
     useEffect(()=>{
         setIsLoading(true)
@@ -31,12 +35,14 @@ fetchArticleList(topic)
     )
 
     return isLoading?<div>Loading...</div>:
-   (
+   (<>
+    <SortBar/>
   <ol className="list">
 {articlesList.map(articlePreview=>{
 return <ArticlePreviewCard key={articlePreview.article_id} articlePreview={articlePreview} />
 })}
 </ol>
+</>
 
  
     )

@@ -5,7 +5,7 @@ export const CommentCard=({comment})=>{
         const vote=e.target.value;
 
     }
-    console.log(new Date(created_at).toLocaleString())
+
     return(
         <div className="comment">
         <p>    {body}</p>
