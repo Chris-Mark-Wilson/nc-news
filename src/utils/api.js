@@ -13,7 +13,6 @@ export const fetchArticleList = (topic,sortBy,order) => {
   return api
     .get(queryString)
     .then(({ data }) => {
-
       return data.articles;
     })
     .catch((err) => {
@@ -82,12 +81,15 @@ export const fetchAllTopics=()=>{
 return data.topics
   })
   .catch((err) => {
+  
     if (err.message === "Network Error") {
       return Promise.reject(err.message);
     } else {
       if(err.response.data.error){
       return Promise.reject(err.response.data.error)}
-    else {
+    else {if(err.response.data.msg){
+      return Promise.reject(err.response.data.msg)
+    }else
       return Promise.reject(err.message)}
   }
   });

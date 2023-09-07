@@ -1,4 +1,4 @@
-export const Container=({children})=>{
+export const MainContainer=({children})=>{
 return(
     
     <div className="main-container">

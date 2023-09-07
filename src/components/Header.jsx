@@ -13,7 +13,10 @@ export const Header = () => {
   useEffect(() => {
     fetchAllTopics().then((topics) => {
       setTopics(topics);
-    });
+    })
+    .catch(err=>{
+      alert(err)
+    })
   }, []);
 
   const { user } = useContext(UserContext);
