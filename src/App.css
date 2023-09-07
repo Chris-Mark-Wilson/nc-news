@@ -162,9 +162,12 @@ border:2px dashed red;
 }
 .sort-bar{
   display:flex;
+  flex-direction:column;
   border:2px solid yellow;
   margin:10px auto;
   justify-content: space-evenly;
+  flex-wrap: wrap;
+  height:fit-content
 }
 }
 @media only screen and (min-width:600px){
