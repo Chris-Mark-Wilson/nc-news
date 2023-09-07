@@ -1,8 +1,8 @@
 export const MainContainer=({children})=>{
 return(
     
-    <div className="main-container">
+    <section className="main-container">
         {children}
-    </div>
+    </section>
 )
 }

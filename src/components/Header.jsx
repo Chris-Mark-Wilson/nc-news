@@ -21,7 +21,8 @@ export const Header = () => {
 
   const { user } = useContext(UserContext);
   return (
-    <>
+    <section className="header">
+      <section className="nav-bar">
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container>
           <Navbar.Brand href="#home">NC News</Navbar.Brand>
@@ -50,7 +51,8 @@ export const Header = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+      </section>
       <p className="logged-in-as">Logged in as:{user}</p>
-    </>
+    </section>
   );
 };
