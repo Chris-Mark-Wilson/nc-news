@@ -1,3 +1,5 @@
+
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -14,7 +16,7 @@ body{
 height:50vh;
 padding:0;
 }
-nav{
+/* nav{
   display: flex;
   flex-direction: column;
   justify-items: space-around;
@@ -24,11 +26,11 @@ nav{
   border-radius: 10px;
   width:90vw;
   height:8vh;
-}
+} */
 .logged-in-as{
   margin:0 auto;
 }
-.nav-buttons{
+/* .nav-buttons{
   border: 1px solid magenta;
   display: flex;
   flex-direction: row;
@@ -41,7 +43,7 @@ nav{
     background-color: white;
     color:black;
     margin-top: 5px;
-  }
+  } */
 .error-msg{
   margin:50px auto;
 }

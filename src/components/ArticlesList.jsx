@@ -1,6 +1,7 @@
 import { useState,useEffect } from "react"
 import { fetchArticleList } from "../utils/api"
 import {ArticlePreviewCard} from './ArticlePreviewCard'
+import { useParams,useSearchParams } from "react-router-dom"
 
 
 export const ArticlesList=({setArticle_id})=>{
@@ -8,10 +9,13 @@ export const ArticlesList=({setArticle_id})=>{
     const[isLoading,setIsLoading]=useState(true)
     const [error,setError]=useState(false)
     const [errorMsg,setErrorMsg]=useState("")
+    const[searchParams,setSearchParams]=useSearchParams()
+    const topic=searchParams.get("topic")
 
     useEffect(()=>{
         setIsLoading(true)
-fetchArticleList()
+      
+fetchArticleList(topic)
 .then((list)=>{
     setArticlesList(list)
     setIsLoading(false)
