@@ -15,17 +15,17 @@ export const ArticlesList=({setArticle_id})=>{
     const [sortBy,setSortBy]=useState("created_at")
     const[order,setOrder]=useState("DESC")
 
+ 
+
+
+
+
     useEffect(()=>{
+        
         const params=new URLSearchParams(searchParams)
         params.set('order',order)
         params.set('sort_by',sortBy)
         setSearchParams(params)
-    },[order,sortBy])
-
-
-
-
-    useEffect(()=>{
         setIsLoading(true)
    
 fetchArticleList(topic,sortBy,order)

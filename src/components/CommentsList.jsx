@@ -2,12 +2,12 @@ import { useState,useEffect } from "react"
 import { CommentCard } from "./CommentCard"
 import { fetchCommentByArticleId } from "../utils/api"
 
-export const CommentsList=({article_id,commentsList,setCommentsList})=>{
+export const CommentsList=({article_id,commentsList,setCommentsList,showComments,setShowComments})=>{
 
 const[isLoading,setIsLoading]=useState(true)
 const [errorMsg,setErrorMsg]=useState("")
 const [error,setError]=useState(false)
-const[showComments,setShowComments]=useState(false)
+
     useEffect(()=>{
         setIsLoading(true)
 fetchCommentByArticleId(article_id)
@@ -20,7 +20,7 @@ fetchCommentByArticleId(article_id)
     setError(true)
     setErrorMsg(msg)
 })
-    },[])
+    },  [])
 
     const handleToggle=(e)=>{
         showComments?setShowComments(false):setShowComments(true)
@@ -34,7 +34,7 @@ fetchCommentByArticleId(article_id)
         <button onClick={handleToggle}className="comments-label">{!showComments?"Show comments:":"Hide comments"}</button>
         {showComments&&   <section className="comments-list">        <ol className="list">
         {commentsList.map(comment=>{
-        return <CommentCard key={comment.comment_id} comment={comment} />
+        return <CommentCard key={comment.comment_id} comment={comment} setCommentsList={setCommentsList} />
         })}
         </ol>
         </section>}

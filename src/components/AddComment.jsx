@@ -5,7 +5,7 @@ import { postComment } from "../utils/api";
 import { Success } from "./Success";
 import { createPortal } from "react-dom";
 
-export const AddComment = ({ article_id, setCommentsList }) => {
+export const AddComment = ({ article_id, setCommentsList,setShowComments }) => {
   const { user } = useContext(UserContext);
   const [showModal, setShowModal] = useState(false);
   const [comment, setComment] = useState("");
@@ -39,10 +39,11 @@ export const AddComment = ({ article_id, setCommentsList }) => {
       newComment.body=comment;
       newComment.comment_id=list.length+1;
       newComment.created_at= new Date().toString()
-      console.log(newComment.created_at)
+      newComment.author=user
       newComment.votes=0;
       return [newComment, ...list];
     });
+    setShowComments(true)
     postComment(article_id, user, comment)
       .then((result) => {
         setSuccess(true);
@@ -72,7 +73,7 @@ export const AddComment = ({ article_id, setCommentsList }) => {
       </button>
 
       {showModal && article_id && (
-        <div className="modal">
+        <div className="mod">
           <p>commenting as {user}</p>
           <textarea
             placeholder="enter comment"

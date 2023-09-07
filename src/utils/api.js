@@ -17,9 +17,7 @@ export const fetchArticleList = (topic,sortBy,order) => {
       return data.articles;
     })
     .catch((err) => {
-      if (err.response.data.error) {
-        return Promise.reject(err.response.data.error);
-      } else return Promise.reject(err.message);
+  return Promise.reject(err.message);
     });
 };
 
@@ -82,6 +80,23 @@ export const fetchAllTopics=()=>{
   return api.get('/api/topics')
   .then(({data})=>{
 return data.topics
+  })
+  .catch((err) => {
+    if (err.message === "Network Error") {
+      return Promise.reject(err.message);
+    } else {
+      if(err.response.data.error){
+      return Promise.reject(err.response.data.error)}
+    else {
+      return Promise.reject(err.message)}
+  }
+  });
+}
+
+export const deleteComment=(comment_id)=>{
+  return api.delete(`/api/comments/${comment_id}`)
+  .then((response)=>{
+return response;
   })
   .catch((err) => {
     if (err.message === "Network Error") {

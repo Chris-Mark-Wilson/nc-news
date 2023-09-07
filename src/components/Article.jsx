@@ -10,7 +10,7 @@ export const Article = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
   const [commentsList,setCommentsList]=useState([])
-
+  const[showComments,setShowComments]=useState(false)
   const [errorMsg, setErrorMsg] = useState("");
 
   const { article_id } = useParams();
@@ -41,10 +41,6 @@ export const Article = () => {
   if (error) return <div className="error-msg">Error:{errorMsg}</div>;
 
  
-  const handleAddComment=(e)=>{
-
-  }
-
   return isLoading ? (
     <div>Loading...</div>
   ) : (
@@ -66,11 +62,11 @@ export const Article = () => {
       <section className="article-body">
         <p>{body}</p>
       </section>
-<AddComment article_id={article_id}setCommentsList={setCommentsList}/>
+<AddComment  setShowComments={setShowComments} article_id={article_id}setCommentsList={setCommentsList}/>
 
       {comment_count > 0 ? (
         <section className="comments">
-          <CommentsList article_id={article_id} commentsList={commentsList} setCommentsList={setCommentsList} />
+          <CommentsList article_id={article_id} commentsList={commentsList} setCommentsList={setCommentsList} showComments={showComments} setShowComments={setShowComments}/>
         </section>
       ) : (
         <p className="no-comments">
