@@ -26,6 +26,7 @@ export const ArticlePreviewCard = ({ articlePreview}) => {
           See full article
         </button>
       </Link>
+      <hr/>
     </div>
   );
 };
