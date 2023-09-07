@@ -24,7 +24,7 @@ const[article_id,setArticle_id]=useState(0)
            <Route path="/" element={<Home setArticleId={setArticle_id}/>} />
            <Route path="/Articles" element={<ArticlesList setArticle_id={setArticle_id}/>}/>
            <Route path="/Articles/:article_id" element={<Article />}/> 
-           <Route path="/Articles/:topic" element={<ArticlesList setArticle_id={setArticle_id}/>}/>
+     
 
 
       </Routes>

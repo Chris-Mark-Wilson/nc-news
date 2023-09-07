@@ -3,9 +3,12 @@ import axios from "axios";
 const baseURL = "https://nrthcoders-ncnews.onrender.com";
 const api = axios.create({ baseURL });
 
-export const fetchArticleList = () => {
+export const fetchArticleList = (topic) => {
+  let queryString="/api/articles"
+  if(topic)queryString+=`?topic=${topic}`
+
   return api
-    .get("/api/articles")
+    .get(queryString)
     .then(({ data }) => {
       return data.articles;
     })
@@ -71,3 +74,19 @@ export const postComment = (article_id, username, body) => {
       }
     });
 };
+export const fetchAllTopics=()=>{
+  return api.get('/api/topics')
+  .then(({data})=>{
+return data.topics
+  })
+  .catch((err) => {
+    if (err.message === "Network Error") {
+      return Promise.reject(err.message);
+    } else {
+      if(err.response.data.error){
+      return Promise.reject(err.response.data.error)}
+    else {
+      return Promise.reject(err.message)}
+  }
+  });
+}
