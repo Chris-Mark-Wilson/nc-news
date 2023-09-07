@@ -109,7 +109,7 @@ overflow:scroll;
 }
 .comments-list{
   border:2px solid magenta;
-  height:30vh;
+  height:fit-content;
   overflow:auto;
 }
 .vote-button{
