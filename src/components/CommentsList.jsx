@@ -7,6 +7,7 @@ export const CommentsList=({article_id,commentsList,setCommentsList})=>{
 const[isLoading,setIsLoading]=useState(true)
 const [errorMsg,setErrorMsg]=useState("")
 const [error,setError]=useState(false)
+const[showComments,setShowComments]=useState(false)
     useEffect(()=>{
         setIsLoading(true)
 fetchCommentByArticleId(article_id)
@@ -20,18 +21,24 @@ fetchCommentByArticleId(article_id)
     setErrorMsg(msg)
 })
     },[])
+
+    const handleToggle=(e)=>{
+        showComments?setShowComments(false):setShowComments(true)
+    }
+
     if(error)return(
         <div className="error-msg">Error:{errorMsg}</div>
     )
     return isLoading?<div>Loading comments...</div>:(
         <>
-        <h4 className="comments-label">Comments:</h4>
-        <section className="comments-list">        <ol className="list">
+        <button onClick={handleToggle}className="comments-label">{!showComments?"Show comments:":"Hide comments"}</button>
+        {showComments&&   <section className="comments-list">        <ol className="list">
         {commentsList.map(comment=>{
         return <CommentCard key={comment.comment_id} comment={comment} />
         })}
         </ol>
-        </section>
+        </section>}
+     
 
         </>
     )

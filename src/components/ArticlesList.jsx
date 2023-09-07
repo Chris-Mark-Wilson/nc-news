@@ -20,7 +20,7 @@ export const ArticlesList=({setArticle_id})=>{
         params.set('order',order)
         params.set('sort_by',sortBy)
         setSearchParams(params)
-    },[])
+    },[order,sortBy])
 
 
 
