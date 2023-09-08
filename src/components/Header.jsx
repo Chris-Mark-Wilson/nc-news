@@ -5,12 +5,14 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { fetchAllTopics } from "../utils/api";
+import usePrefersColorScheme from 'use-prefers-color-scheme'
 
 export const Header = () => {
   const [topics, setTopics] = useState([]);
   const[mode,setMode]=useState("dark")
   const { user } = useContext(UserContext);
 
+  const prefersColorScheme = usePrefersColorScheme()
   useEffect(() => {
     fetchAllTopics().then((topics) => {
       setTopics(topics);
@@ -18,17 +20,11 @@ export const Header = () => {
     .catch(err=>{
       alert(err)
     })
+  const isDarkMode = prefersColorScheme === 'dark'
+  isDarkMode?setMode("dark"):setMode("light")
+  console.log(mode)
   }, []);
-
-  window.matchMedia('(prefers-color-scheme: dark)')
-  .addEventListener('change',({ matches }) => {
-if (matches) {
-setMode("dark")
-} else {
-setMode("light")
-}
-})
-
+console.log(mode)
 
   return (
     <section className="header">
