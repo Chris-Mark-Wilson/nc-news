@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
 import { UserContext } from "../contexts/user-context";
 import Container from "react-bootstrap/Container";
@@ -9,6 +8,8 @@ import { fetchAllTopics } from "../utils/api";
 
 export const Header = () => {
   const [topics, setTopics] = useState([]);
+  const[mode,setMode]=useState("dark")
+  const { user } = useContext(UserContext);
 
   useEffect(() => {
     fetchAllTopics().then((topics) => {
@@ -19,11 +20,20 @@ export const Header = () => {
     })
   }, []);
 
-  const { user } = useContext(UserContext);
+  window.matchMedia('(prefers-color-scheme: dark)')
+  .addEventListener('change',({ matches }) => {
+if (matches) {
+setMode("dark")
+} else {
+setMode("light")
+}
+})
+
+
   return (
     <section className="header">
       <section className="nav-bar">
-      <Navbar expand="lg" className="bg-body-tertiary">
+      <Navbar expand="lg" data-bs-theme={mode}>
         <Container>
           <Navbar.Brand href="#home">NC News</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />

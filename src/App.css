@@ -4,44 +4,68 @@ body{
   background-color: #242424;
 color:aliceblue;
 }
+.nav-bar{
+  background-color: #242424;
+  color:aliceblue;
 }
-/* 
-@media only  screen and (max-width:600px){
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-  align-items: start;
-  
+.bg-body-tertiary{
+  background-color: #242424;
+  color:aliceblue;
+}
 }
 
+ @media only  screen and (max-width:600px){
 
-}
 body{
-  display:flex;
+  /* display:flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center; */
   box-sizing: border-box;
   border:1px dotted magenta;
-height:50vh;
+width:100%;
 padding:0;
 }
+#root {
+  display:flex;
+  flex-direction: column;
+  border:3px dashed green;
+  max-width: 600px;
+   text-align: center;
+  align-items: start;
+  width:100%;
+  justify-items: center;
+}
+.footer{
+  border:1px solid green;
+  display:flex;
+flex-direction: row;
+width:100%;
+justify-content: center;
+}
+.back-button{
+  border:1px solid red;
+width:90px;
+height:30px;
+text-align: center;
+padding: 0;
 
+}
 .logged-in-as{
   margin:0 auto;
 }
 
-
+.header{
+width:100%;
+}
 .error-msg{
   margin:50px auto;
 }
 .main-container{
   margin:20px auto 0 auto;
-  width:90vw;
+  width:90%;
   border:1px solid rgb(22, 22, 165);
   height:78vh;
-  overflow:auto;
+  overflow:scroll;
   
   
 }
@@ -52,14 +76,11 @@ padding:0;
   margin:1px auto 10px auto;
 }
 .article-preview{
-  width:80vw;
+  width:80%;
   border:1px solid green;
-
   margin:10px auto 10px auto;
 }
-.back-button{
-  margin:10px auto;
-}
+
 .list{
   box-sizing: border-box;
   border:3px dashed white;
@@ -106,7 +127,7 @@ overflow:scroll;
 .comment{
   border:2px dashed rgb(90, 224, 206);
   margin:10px auto;
-  width:100%;
+  width:90%;
 }
 .comments-list{
   border:2px solid magenta;
@@ -164,13 +185,17 @@ border:2px dashed red;
 .sort-bar{
   display:flex;
   flex-direction:column;
+  width:100%;
   border:2px solid yellow;
   margin:10px auto;
   justify-content: space-evenly;
   flex-wrap: wrap;
   height:fit-content
 }
-} */
+
+} 
+
+/*
 @media only screen and (min-width:600px){
 
   body{
@@ -188,7 +213,7 @@ height:50vh;
     height:100%;
     width:100%;
     max-width: 1280px;
-    /* margin: 0 auto; */
+
     text-align: center;
     align-items: start;
     grid-template-columns: 70vw 30vw;
@@ -362,4 +387,4 @@ grid-row: 2/2;
     margin:10px auto;
     justify-content: space-evenly;
   } 
-} 
+}  */
