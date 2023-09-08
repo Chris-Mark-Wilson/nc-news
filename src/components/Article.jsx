@@ -46,7 +46,7 @@ export const Article = () => {
         setErrorMsg(msg);
       });
       
-  }, []);
+  }, [article_id]);
   if (error) return <div className="error-msg">Error:{errorMsg}</div>;
   const handleToggle=(e)=>{
     showComments?setShowComments(false):setShowComments(true)
