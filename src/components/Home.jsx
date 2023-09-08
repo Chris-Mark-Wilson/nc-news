@@ -8,7 +8,7 @@ export const Home=({setArticleId})=>{
             <h1>NC-News</h1>
             <h4>Everything you wanted to know but were too afraid to ask
             </h4>
-<img src='../../public/chrishillnorthcoders.jpg' className="ncImage"></img>
+<img src='/chrishillnorthcoders.jpg' className="ncImage"></img>
         </section>
                 <ArticlesList setArticle_id={setArticleId}/>
                 </>
