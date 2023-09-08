@@ -6,7 +6,7 @@ export const Footer = () => {
   const topic = searchParams.get("topic");
 
   return (
-    <section className="footer">
+    <section className="back">
       {topic && (
         <Link to="../">
           <button className="back-button">BACK</button>

@@ -27,7 +27,7 @@ export const fetchArticleById = (article_id) => {
       return data.article;
     })
     .catch((err) => {
-      console.log(err)
+     
       if (err.response.data.error) {
         return Promise.reject(err.response.data.error);
       } else return Promise.reject(err.message);

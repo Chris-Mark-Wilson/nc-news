@@ -33,7 +33,7 @@ padding:0;
   width:100%;
   justify-items: center;
 }
-.footer{
+.back{
 
   display:flex;
 flex-direction: row;
@@ -55,6 +55,9 @@ padding: 0;
 .header{
 width:100%;
 }
+.ncImage{
+  width:60%;
+}
 .error-msg{
   margin:50px auto;
 }
@@ -72,6 +75,8 @@ width:100%;
 }
 .preview-button{
   margin:1px auto 10px auto;
+  padding:2px;
+  border:1px solid #606060
 }
 .article-preview{
   width:80%;
@@ -116,13 +121,13 @@ width:100%;
   display:flex;
 margin:10px auto;
 padding:2px;
-border:1px solid white;
+border:1px solid #606060;
 }
 .comment{
   display:flex;
   flex-direction:column;
   border:1px solid white;
-  border-radius: 10px;;
+  border-radius: 10px;
   margin:10px auto;
   width:90%;
   padding:5px;
@@ -133,18 +138,13 @@ border:1px solid white;
   height:fit-content;
   overflow:auto;
 }
-.add-comment-button{
-  padding:2px;
-  width:fit-content;
+.add-comment-button, .remove-comment-button{
+  border:1px solid #606060;
+  padding:2px 5px 2px 5px;
+
   margin:0 auto;
-  border:1px solid white;
 }
-.remove-comment-button{
-  width:fit-content;
-  margin:0 auto;
-  font-size: 1em;
-  margin-bottom: 10px;;
-}
+
 .voting{
   display:flex;
   flex-direction: row;
@@ -199,196 +199,4 @@ border:1px solid white;
 
 } 
 
-/*
-@media only screen and (min-width:600px){
 
-  body{
-  
-    box-sizing: border-box;
-    border:1px dotted rgb(240, 225, 240);
-
-  padding:0;
-height:50vh;
-
-  }
-  #root {
-    border:2px dashed green;
-    display:grid;
-    height:100%;
-    width:100%;
-    max-width: 1280px;
-
-    text-align: center;
-    align-items: start;
-    grid-template-columns: 70vw 30vw;
-    grid-template-rows: 15vh 65vh 20vh;
-  }
-  
-  .logged-in-as{
-    margin:0 auto;
-    align-self:center;
-  }
-  .header{
-    grid-column:1/3;
-    grid-row:1;
-    border:1px solid red;
-    display:flex;
-
-  }
-  .article{
-    border:2px dashed blue;
-    grid-column:1/span 1;
-    grid-row:2;
-    height:100%;
-  }
-  .nav-bar{
-    width:100%;
-    border:2px dashed blue;
-  }
-  .logged-in-as{
-    width:20vw;
-  }
-  .error-msg{
-    margin:50px auto;
-  }
-  .main-container{
-grid-column:1/1 ;
-grid-row: 2/2;
-    border:1px solid rgb(238, 238, 246);
-    height:100%;
-    overflow:scroll;
-  }
-.articles-list{
- 
-    grid-column:2/2;
-    grid-row:2/2;
-    border:1px solid red;
-  }
-  .article-preview{
-   width:100%;
-    border:1px solid green;
-  padding: 0;
-    margin:0 ;
-  } 
-    
-
-  .preview-image{
-    width:40vw;
-  }
-  .preview-button{
-    margin:1px auto 10px auto;
-  }
-
-  .back-button{
-    margin:10px auto;
-  }
-  .list{
-  
-    box-sizing: border-box;
-    border:3px dashed white;
-    display:flex;
-    flex-direction: column;
-    padding:0;
-    margin:0 auto;
-  }
-  .main-article{
-    grid-area:main;
-    display:flex;
-    flex-direction: column;
-  border:2px double  red;
-  overflow:scroll;
-  }
-  .article-title{
-    border:2px dotted green;
-  }
-  .article-img{
-    border:2px dotted blue;
-  }
-  .author-created{
-    display:flex;
-    flex-direction:row;
-    justify-content: space-evenly;
-    height:fit-content;
-    border:2px solid green;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  .mono{
-    padding:2px;
-     font-family:monospace;
-     color:rgb(169, 77, 89);
-  }
-  .article-body{
-    line-height: 1.5;
-
-  }
-  .comments-label{
-    display:flex;
-    border:1px solid blue;
-    justify-content: flex-start;
-  }
-  .comment{
-    border:2px dashed rgb(90, 224, 206);
-    margin:10px auto;
-    width:100%;
-  }
-  .comments-list{
-    border:2px solid magenta;
-    height:30vh;
-    overflow:auto;
-  }
-  .vote-button{
-    padding:0;
-  }
-  .no-comments{
-    border:2px dashed green;
-  }
-  .add-comment-button{
-    border:1px solid red;
-    padding:3px;
-    width:20vw;
-    margin:0 auto;
-  }
-  .voting{
-    display:flex;
-    flex-direction: row;
-    width:15vw;
-    justify-content: space-around;
-  }
-  .mod{
-    position:relative;
-    top:-20vh;
-  border:2px dashed red;
-    width:100%;
-    background-color: #242424;
-    padding:10px auto;
-  }
-  .text-area{
-    width:80vw;
-    height:10vh;
-  }
-  .submit-cancel{
-    margin:10px;
-    padding:8px
-  }
-  .success{
-    display:flex;
-    background-color: azure;
-    color:black;
-    position:absolute;
-    top:50%;
-    left:40vw;
-    padding:10px;
-    width: 20vh;
-    height:10vh;
-    
-    align-items: center;
-    justify-content: center;
-  }
-  .sort-bar{
-    display:flex;
-    border:2px solid yellow;
-    margin:10px auto;
-    justify-content: space-evenly;
-  } 
-}  */
