@@ -12,7 +12,7 @@ export const Header = () => {
   const[mode,setMode]=useState("dark")
   const { user } = useContext(UserContext);
 
-  const prefersColorScheme = usePrefersColorScheme()
+const  theme=usePrefersColorScheme()
   useEffect(() => {
     fetchAllTopics().then((topics) => {
       setTopics(topics);
@@ -20,16 +20,16 @@ export const Header = () => {
     .catch(err=>{
       alert(err)
     })
-  const isDarkMode = prefersColorScheme === 'dark'
-  isDarkMode?setMode("dark"):setMode("light")
-  console.log(mode)
+    setMode(theme)
+
+
   }, []);
-console.log(mode)
+
 
   return (
     <section className="header">
       <section className="nav-bar">
-      <Navbar expand="lg" data-bs-theme={mode}>
+      <Navbar expand="lg" bg={mode} data-bs-theme={mode}>
         <Container>
           <Navbar.Brand href="#home">NC News</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const Footer = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const topic = searchParams.get("topic");
-  console.log(topic);
+
   return (
     <section className="footer">
       {topic && (

@@ -43,9 +43,7 @@ if(deleting)return(
 
       <div className="comment">
         <p> {body}</p>
-        {user === author && (
-          <button onClick={handleRemoveComment}>Remove comment</button>
-        )}
+     
         <section className="author-created">
           <p>
             By: <span className="mono">{author}</span>
@@ -59,13 +57,19 @@ if(deleting)return(
           <p>
             Votes:<span className="mono">{votes}</span>
           </p>
-          <button className="vote-button" onClick={handleVoteCLick} value="1">
+          
+        </section>
+        <section className="voting">
+        <button className="vote-button" onClick={handleVoteCLick} value="1">
             🔼
           </button>
           <button className="vote-button" onClick={handleVoteCLick} value="-1">
             🔽
           </button>
-        </section>
+          </section>
+          {user === author && (
+          <button className="remove-comment-button" onClick={handleRemoveComment}>Remove comment</button>
+        )}
       </div>
 
   );
