@@ -52,7 +52,7 @@ export const Header = () => {
         </Container>
       </Navbar>
       </section>
-      <p className="logged-in-as">Logged in as:{user}</p>
+      <p className="logged-in-as">Posting as:{user}</p>
     </section>
   );
 };

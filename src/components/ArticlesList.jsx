@@ -40,18 +40,18 @@ fetchArticleList(topic,sortBy,order)
 })
     },[sortBy,order])
     if(error)return(
-        <div className="error-msg">Error:{errorMsg}</div>
+        <div className="articles-list error-msg">Error:{errorMsg}</div>
     )
 
-    return isLoading?<div>Loading...</div>:
-   (<>
+    return isLoading?<div className="articles-list">Loading...</div>:
+   (<div className="articles-list">
     <SortBar sortBy={sortBy} setSortBy={setSortBy}  order={order} setOrder={setOrder}/>
   <ol className="list">
 {articlesList.map(articlePreview=>{
 return <ArticlePreviewCard key={articlePreview.article_id} articlePreview={articlePreview} />
 })}
 </ol>
-</>
+</div>
 
  
     )
