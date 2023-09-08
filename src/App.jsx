@@ -20,7 +20,7 @@ const[article_id,setArticle_id]=useState(0)
   return (
     <>
     <Header/>
-  <MainContainer>   
+  {/* <MainContainer>    */}
     <Routes>
            <Route path="/" element={<Home setArticleId={setArticle_id}/>} />
            <Route path="/Articles" element={<ArticlesList setArticle_id={setArticle_id}/>}/>
@@ -29,7 +29,7 @@ const[article_id,setArticle_id]=useState(0)
 
 
       </Routes>
-      </MainContainer>
+      {/* </MainContainer> */}
  <Footer/>
     </>
   )
