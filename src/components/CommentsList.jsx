@@ -22,16 +22,14 @@ fetchCommentByArticleId(article_id)
 })
     },  [])
 
-    const handleToggle=(e)=>{
-        showComments?setShowComments(false):setShowComments(true)
-    }
+ 
 
     if(error)return(
         <div className="error-msg">Error:{errorMsg}</div>
     )
     return isLoading?<div>Loading comments...</div>:(
         <>
-        <button onClick={handleToggle}className="comments-label">{!showComments?"Show comments:":"Hide comments"}</button>
+       
         {showComments&&   <section className="comments-list">        <ol className="list">
         {commentsList.map(comment=>{
         return <CommentCard key={comment.comment_id} comment={comment} setCommentsList={setCommentsList} />
