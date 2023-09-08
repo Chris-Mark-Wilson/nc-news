@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import './Wide-screen.css'
 
 import { Routes, Route } from 'react-router-dom';
 import { Header } from './components/Header';
@@ -15,21 +16,21 @@ import { Footer } from './components/Footer';
 function App() {
 
 
-const[article_id,setArticle_id]=useState(0)
+const[article_id,setArticle_id]=useState(1)
 
   return (
     <>
     <Header/>
-  <MainContainer>   
+  {/* <MainContainer>    */}
     <Routes>
            <Route path="/" element={<Home setArticleId={setArticle_id}/>} />
-           <Route path="/Articles" element={<ArticlesList setArticle_id={setArticle_id}/>}/>
+           <Route path="/Articles" element={<ArticlesList article_id={article_id} setArticle_id={setArticle_id}/>}/>
            <Route path="/Articles/:article_id" element={<Article />}/> 
      
 
 
       </Routes>
-      </MainContainer>
+      {/* </MainContainer> */}
  <Footer/>
     </>
   )

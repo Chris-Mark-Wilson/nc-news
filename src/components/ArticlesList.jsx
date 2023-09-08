@@ -3,6 +3,9 @@ import { fetchArticleList } from "../utils/api"
 import {ArticlePreviewCard} from './ArticlePreviewCard'
 import { useParams,useSearchParams } from "react-router-dom"
 import { SortBar } from "./SortBar"
+import { Article } from "./Article"
+import { useContext } from "react"
+import { WidthContext } from "../contexts/width-context"
 
 
 export const ArticlesList=({setArticle_id})=>{
@@ -14,12 +17,8 @@ export const ArticlesList=({setArticle_id})=>{
     const topic=searchParams.get("topic")
     const [sortBy,setSortBy]=useState("created_at")
     const[order,setOrder]=useState("DESC")
-
+    const {width,setWidth}=useContext(WidthContext)
  
-
-
-
-
     useEffect(()=>{
         
         const params=new URLSearchParams(searchParams)
@@ -31,7 +30,11 @@ export const ArticlesList=({setArticle_id})=>{
 fetchArticleList(topic,sortBy,order)
 .then((list)=>{
     setArticlesList(list)
+    
+   
+    
     setIsLoading(false)
+
 })
 .catch((msg)=>{
     setIsLoading(false)
@@ -39,18 +42,24 @@ fetchArticleList(topic,sortBy,order)
     setErrorMsg(msg)
 })
     },[sortBy,order])
+
+
+
     if(error)return(
-        <div className="error-msg">Error:{errorMsg}</div>
+        <div className="articles-list error-msg">Error:{errorMsg}</div>
     )
 
-    return isLoading?<div>Loading...</div>:
-   (<>
+    return isLoading?<div className="articles-list">Loading...</div>:
+   (
+   <><div className="articles-list">
     <SortBar sortBy={sortBy} setSortBy={setSortBy}  order={order} setOrder={setOrder}/>
   <ol className="list">
 {articlesList.map(articlePreview=>{
 return <ArticlePreviewCard key={articlePreview.article_id} articlePreview={articlePreview} />
 })}
 </ol>
+</div>
+
 </>
 
  

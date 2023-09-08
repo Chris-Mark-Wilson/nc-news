@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { fetchArticleById } from "../utils/api";
 import { useParams } from "react-router-dom";
 import { CommentsList } from "./CommentsList";
 import { VoteArticle } from "./VoteArticle";
 
 import { AddComment } from "./AddComment";
+import { ArticlesList } from "./ArticlesList";
+import {WidthContext} from'../contexts/width-context'
+
 export const Article = () => {
   const [article, setArticle] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -12,8 +15,12 @@ export const Article = () => {
   const [commentsList,setCommentsList]=useState([])
   const[showComments,setShowComments]=useState(false)
   const [errorMsg, setErrorMsg] = useState("");
+  const{width,setWidth}=useContext(WidthContext)
 
-  const { article_id } = useParams();
+
+  const {article_id}=useParams()
+
+
   const {
     title,
     topic,
@@ -24,6 +31,7 @@ export const Article = () => {
     created_at,
     votes,
   } = article;
+
 
   useEffect(() => {
     setIsLoading(true);
@@ -37,16 +45,24 @@ export const Article = () => {
         setError(true);
         setErrorMsg(msg);
       });
+      
   }, []);
   if (error) return <div className="error-msg">Error:{errorMsg}</div>;
-
+  const handleToggle=(e)=>{
+    showComments?setShowComments(false):setShowComments(true)
+}
  
   return isLoading ? (
     <div>Loading...</div>
   ) : (
+    <>
     <section className="main-article">
       <h3 className="article-title">{title}</h3>
       <img className="article-img" src={article_img_url} />
+     
+      <section className="article-body">
+        <p>{body}</p>
+      </section>
       <section className="author-created">
         <p className="author">
           By: <span className="mono">{author}</span>
@@ -59,12 +75,12 @@ export const Article = () => {
         </p>
         <VoteArticle article_id={article_id}votes={votes} setArticle={setArticle}/>
       </section>
-      <section className="article-body">
-        <p>{body}</p>
-      </section>
 <AddComment  setShowComments={setShowComments} article_id={article_id}setCommentsList={setCommentsList}/>
 
-      {comment_count > 0 ? (
+<button onClick={handleToggle}className="comments-label">{!showComments?"Show comments:":"Hide comments"}</button>
+
+    </section>
+    {comment_count > 0 ? (
         <section className="comments">
           <CommentsList article_id={article_id} commentsList={commentsList} setCommentsList={setCommentsList} showComments={showComments} setShowComments={setShowComments}/>
         </section>
@@ -73,8 +89,8 @@ export const Article = () => {
           No comments yet be the first to add a comment!
         </p>
       )}
-
-    </section>
+      {width>600&&<ArticlesList/>}
+    </>    
   );
 };
 //

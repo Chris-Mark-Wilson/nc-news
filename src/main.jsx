@@ -1,19 +1,19 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
-import { BrowserRouter } from 'react-router-dom'
-import { UserProvider} from'./contexts/user-context.jsx'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import "./index.css";
+import { BrowserRouter } from "react-router-dom";
+import { UserProvider } from "./contexts/user-context.jsx";
+import { WidthProvider } from "./contexts/width-context.jsx";
 
-
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-        <BrowserRouter>
-        <UserProvider>
- 
-    <App />
-
-    </UserProvider>
+    <BrowserRouter>
+      <UserProvider>
+        <WidthProvider>
+          <App />
+        </WidthProvider>
+      </UserProvider>
     </BrowserRouter>
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);
