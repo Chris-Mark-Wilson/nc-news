@@ -6,16 +6,8 @@ color:aliceblue;
 }
 
 @media only  screen and (max-width:600px){
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-  align-items: start;
   
-}
-
-
+  
 }
 body{
   display:flex;
@@ -23,10 +15,21 @@ body{
   justify-content: center;
   box-sizing: border-box;
   border:1px dotted magenta;
-height:50vh;
-padding:0;
+  height:50vh;
+  padding:0;
 }
-
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  align-items: start;
+  height:100%;
+  
+}
+.nav-bar{
+  margin:10px auto;
+}
 .logged-in-as{
   margin:0 auto;
 }
@@ -37,11 +40,11 @@ padding:0;
 }
 .main-container{
   margin:20px auto 0 auto;
-  width:90vw;
+  width:100%;
   border:1px solid rgb(22, 22, 165);
-  height:78vh;
+  height:65vh;
   overflow:auto;
-  
+
   
 }
 .preview-image{
@@ -57,7 +60,7 @@ padding:0;
   margin:10px auto 10px auto;
 }
 .back-button{
-  margin:10px auto;
+  margin:5px auto;
 }
 .list{
   box-sizing: border-box;
